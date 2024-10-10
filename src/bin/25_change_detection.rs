@@ -52,6 +52,7 @@ fn change_my_component(mut component: Query<&mut MyComponent>) {
         return;
     };
     component.0 += 1;
+    // unsafe { *(component.0 as *mut i32) += 1; }
 }
 
 fn change_my_resource(mut resource: ResMut<MyResource>) {
