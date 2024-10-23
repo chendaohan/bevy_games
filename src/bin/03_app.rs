@@ -8,7 +8,7 @@ fn main() -> AppExit {
     App::new()
         // 添加插件
         .add_plugins(MinimalPlugins.set(ScheduleRunnerPlugin::run_loop(Duration::from_secs(1))))
-        .add_plugins(LogPlugin::default())
+        .add_plugins((LogPlugin::default(), StatesPlugin))
         // 注册反射类型
         .register_type::<MyReflectCompoent>()
         // 注册反射 Trait
