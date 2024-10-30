@@ -9,11 +9,12 @@ bevy = { version = "0.14.2", features = [
     "bevy_dev_tools",
     "shader_format_spirv",
 ] }
-bevy-inspector-egui = "0.26.0"
-bevy_blendy_cameras = "0.4.1"
+bevy-inspector-egui = "0.27.0"
+bevy_blendy_cameras = "0.5.1"
 bevy_rapier3d = { version = "0.27.0", features = ["parallel", "simd-stable"] }
-serde = "1.0.210"
-serde_json = "1.0.128"
+avian2d = { version = "0.1.2", features = ["simd"] }
+serde = "1.0.214"
+serde_json = "1.0.132"
 rand = "0.8.5"
 rand_chacha = "0.3.1"
 bevy_mod_billboard = "0.7.0"
@@ -25,6 +26,10 @@ name = "blender_as_bevy_editor"
 [[bin]]
 path = "src/others/physics_tank/main.rs"
 name = "physics_tank"
+
+[[bin]]
+path = "src/others/tiny_blue/main.rs"
+name = "tiny_blue"
 
 [profile.dev]
 opt-level = 1
