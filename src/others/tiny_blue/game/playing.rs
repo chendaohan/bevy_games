@@ -7,7 +7,7 @@ use crate::AppDefaultFont;
 
 use super::{
     collider::{FirePitSensor, FoodSensor, PlayerRigidBody, SpikeSensor},
-    GamePhase, PlayerAnimation, Score, ScoreText, FOOD_SCORE,
+    open_close_menu_page, GamePhase, PlayerAnimation, Score, ScoreText, FOOD_SCORE,
 };
 
 // 移动速度
@@ -27,6 +27,7 @@ pub fn plugin(app: &mut App) {
                 contact_fire_pit_or_spike,
                 game_over,
                 control_walk_animation,
+                open_close_menu_page,
             )
                 .run_if(in_state(GamePhase::Playing)),
         );

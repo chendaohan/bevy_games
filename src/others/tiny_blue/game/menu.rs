@@ -2,15 +2,21 @@ use bevy::prelude::*;
 
 use crate::{spawn_button, AppDefaultFont};
 
-use super::{pressed_return_start_menu_button, GamePhase, ReturnStartMenuButton};
+use super::{
+    open_close_menu_page, pressed_return_start_menu_button, GamePhase, ReturnStartMenuButton,
+};
 
 pub fn plugin(app: &mut App) {
     app.add_systems(OnEnter(GamePhase::Menu), spawn_menu_page)
         .add_systems(
             Update,
-            pressed_return_game_button.run_if(in_state(GamePhase::Menu)),
-        )
-        .add_systems(Update, pressed_return_start_menu_button.run_if(in_state(GamePhase::Menu)));
+            (
+                open_close_menu_page,
+                pressed_return_game_button,
+                pressed_return_start_menu_button,
+            )
+                .run_if(in_state(GamePhase::Menu)),
+        );
 }
 
 // 返回游戏按钮

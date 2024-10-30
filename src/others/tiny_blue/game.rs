@@ -28,17 +28,12 @@ pub fn plugin(app: &mut App) {
         (spawn_scene, insert_score, add_animation_graph),
     )
     .add_systems(
-        OnExit(AppState::Game),
-        (remove_player_animations, remove_score),
-    )
-    .add_systems(
         Update,
         check_scene_load_state.run_if(in_state(GamePhase::Loading)),
     )
     .add_systems(
-        Update,
-        open_close_menu_page
-            .run_if(in_state(GamePhase::Playing).or_else(in_state(GamePhase::Menu))),
+        OnExit(AppState::Game),
+        (remove_player_animations, remove_score),
     );
 }
 
